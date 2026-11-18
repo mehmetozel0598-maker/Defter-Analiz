@@ -1,0 +1,51 @@
+:root{--ana:#0f5e57;--ana2:#14857b;--acik:#e7f4f2;--yazi:#1d2a2a;--gri:#5f6b6b;--cizgi:#d7e3e1;--neg:#c62828;--sari:#fff5d6;--yesil:#e6f2e1;--mavi:#e2eef9}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--yazi);background:#f3f7f6}
+.ust{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 22px;background:var(--ana);color:#fff;position:sticky;top:0;z-index:5}
+.logo{display:flex;align-items:center;gap:12px}.logo img{width:44px;height:44px;border-radius:10px}
+.ust h1{margin:0;font-size:21px}.ust p{margin:0;font-size:13px;opacity:.9}
+.rozet{background:rgba(255,255,255,.18);padding:1px 8px;border-radius:10px;margin-left:6px;font-size:11px}
+main{max-width:1250px;margin:22px auto;padding:0 16px}
+.kart{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:18px 22px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.kart h2{margin:0 0 12px;font-size:18px;display:flex;align-items:center;gap:10px}
+.no{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ana);color:#fff;font-size:14px}
+.btn{display:inline-block;background:var(--ana);color:#fff;border:0;border-radius:9px;padding:10px 18px;font:600 14px inherit;font-family:inherit;cursor:pointer}
+.btn:hover{background:var(--ana2)}.btn.ikincil{background:#fff;color:var(--ana)}
+.drop{display:flex;align-items:center;gap:16px;border:2px dashed #9cc9c2;border-radius:12px;padding:20px;cursor:pointer;background:var(--acik)}
+.drop.over{background:#d3eeea;border-color:var(--ana)}.drop input{display:none}
+.ipucu,.aciklama,small,.dip{color:var(--gri);font-size:13px}
+code{background:#eef3f2;padding:1px 5px;border-radius:4px;font-size:12.5px}
+.durum{margin-top:10px;font-size:14px}.durum.ok{color:#1b5e20}.durum.hata{color:var(--neg)}
+.secim{margin-top:10px;padding:10px 14px;background:var(--sari);border-radius:10px}.secim label{display:block;margin:4px 0}
+.ozet{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.kutu{background:var(--acik);border-radius:10px;padding:8px 12px}.kutu span{display:block;font-size:12px;color:var(--gri)}.kutu b{font-size:16px}
+.aksiyon{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:10px 0}
+.kaydir{overflow:auto;max-width:100%}.onizleme{max-height:420px;border:1px solid var(--cizgi);border-radius:8px}
+.tbl{border-collapse:collapse;width:100%;font-size:13px}
+.tbl th{position:sticky;top:0;background:var(--ana);color:#fff;padding:7px 8px;text-align:left;white-space:nowrap;font-weight:600}
+.tbl.mali th{white-space:normal;min-width:90px}
+.tbl td{padding:5px 8px;border-bottom:1px solid #edf1f0;white-space:nowrap}
+.tbl td.n{text-align:right;font-variant-numeric:tabular-nums}
+.tbl.yev td:nth-child(5),.tbl.yev td:nth-child(7),.tbl.yev td:nth-child(8){white-space:normal;min-width:140px}
+.neg{color:var(--neg)}
+tr.hesap td:nth-child(2){padding-left:30px}
+tr.grup td{font-weight:600}tr.grup td:nth-child(2){padding-left:16px}
+tr.roma td{font-weight:700;background:var(--mavi)}
+tr.toplam td{font-weight:700;background:var(--sari);border-top:1px solid #b9a66b;border-bottom:3px double #b9a66b}
+tr.bolum td{font-weight:700;background:#2f5496;color:#fff}
+tr.not td{font-style:italic;color:var(--gri);white-space:normal}
+tr.ara td{font-weight:700;background:var(--yesil);border-top:1px solid #9bbf8c}
+.tbl.kon td{white-space:normal}.tbl.kon td:first-child{width:45%}
+.alanlar{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:12px 0}
+.alanlar label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:14px}
+.alanlar input{padding:9px 11px;border:1px solid #b9cfcb;border-radius:8px;font:inherit}
+.soru{border:1px solid var(--cizgi);border-radius:10px;padding:10px 16px;margin:6px 0 4px}
+.soru legend{font-weight:700;padding:0 6px}.soru label{display:block;margin:6px 0;cursor:pointer}
+.soru.vurgu{border-color:var(--neg);background:#fff3f3}
+.sekmeler{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.sekmeler button:not(.btn){border:1px solid var(--cizgi);background:#fff;border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit}
+.sekmeler button.aktif{background:var(--ana);color:#fff;border-color:var(--ana)}
+.bosluk{flex:1}
+h3{font-size:15px;margin:16px 0 8px;color:var(--ana)}
+footer{text-align:center;color:var(--gri);font-size:13px;padding:10px 16px 30px}footer a{color:var(--ana)}
+@media print{.ust,#adim1,#adim2,#adim3,.sekmeler,footer{display:none}.kart{border:0;box-shadow:none}}

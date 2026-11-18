@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mali Tablo — Yevmiye Dönüştürücü, Bilanço ve Gelir Tablosu</title>
+<meta name="description" content="Yevmiye defterini VEDAS Excel biçimine dönüştürür; bilanço ve gelir tablosunu geçici vergi dönemleri itibarıyla oluşturur. Çevrimdışı çalışır.">
+<meta name="theme-color" content="#0f5e57">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="ust">
+  <div class="logo"><img src="icons/icon-192.png" alt=""><div><h1>Mali Tablo</h1><p>Yevmiye dönüştürücü · Bilanço · Gelir Tablosu <span class="rozet">VEDAS uyumlu</span></p></div></div>
+  <button id="kur" class="btn ikincil" hidden>Bilgisayara yükle</button>
+</header>
+
+<main>
+  <section class="kart" id="adim1">
+    <h2><span class="no">1</span> Yevmiye dosyasını seçin</h2>
+    <label id="drop" class="drop" for="dosya">
+      <input type="file" id="dosya" accept=".xlsx,.xlsm,.xls,.xlsb,.csv,.ods">
+      <span class="btn">Dosya Seç</span>
+      <span class="ipucu">veya dosyayı buraya sürükleyin — .xlsx, .xls, .xlsm, .csv</span>
+    </label>
+    <p class="aciklama">Fiş başlıklı yevmiye dökümü (ör. <code>00001-----00001-----MAHSUP-----01/01/2023</code>), daha önce dönüştürülmüş yevmiye ya da VEDAS / e-Defter Excel dökümü kullanılabilir. Dosya bilgisayarınızdan çıkmaz.</p>
+    <div id="d1" class="durum"></div>
+    <div id="sayfaSec" class="secim" hidden>
+      <p>Dosyada birden fazla sayfada yevmiye kaydı bulundu:</p>
+      <ul id="sayfaListe"></ul>
+      <label><input type="radio" name="birlestir" id="birlestirEvet"> Tüm sayfaları birleştir</label>
+      <label><input type="radio" name="birlestir" id="birlestirHayir"> Sadece en çok kayıt içeren sayfayı kullan</label>
+    </div>
+  </section>
+
+  <section class="kart" id="adim2" hidden>
+    <h2><span class="no">2</span> VEDAS Excel yevmiyesi</h2>
+    <div id="ozet" class="ozet"></div>
+    <div class="aksiyon"><button id="yevIndir" class="btn">VEDAS_Yevmiye.xlsx indir</button>
+      <span class="ipucu">VEDAS › Veri Yükle › Excel › Defter şablonu ile yüklenebilir (Rehber 8. bölüm).</span></div>
+    <div id="onizleme" class="kaydir onizleme"></div>
+  </section>
+
+  <section class="kart" id="adim3" hidden>
+    <h2><span class="no">3</span> Bilanço ve gelir tablosu</h2>
+    <p class="aciklama">VEDAS Rehberi 7.16.4'te olduğu gibi açılış, kapanış ve yansıtma kayıtlarının yevmiye madde numaraları gerekir. Otomatik bulunanları kontrol edin; birden fazla ise virgülle (<code>1, 2</code>) ya da aralıkla (<code>1-3</code>) yazın.</p>
+    <div class="alanlar">
+      <label>Açılış kayıtları<input id="acilis" placeholder="ör. 1"><small>Açılış bilançosu sütununu oluşturur; gelir tablosuna alınmaz.</small></label>
+      <label>Kapanış kayıtları<input id="kapanis" placeholder="yoksa boş"><small>Bilanço ve gelir tablosuna alınmaz.</small></label>
+      <label>Yansıtma kayıtları<input id="yansitma" placeholder="690 / 692 fişleri"><small>Gelir tablosuna alınmaz, bilançoya alınır.</small></label>
+    </div>
+    <fieldset id="geciciSoru" class="soru">
+      <legend>Bilanço ve gelir tablosu geçici vergi dönemleri itibarıyla da oluşturulsun mu?</legend>
+      <label><input type="radio" name="gecici" value="evet"> Evet — 1., 2., 3. geçici vergi dönemi (kümülatif) + yıllık</label>
+      <label><input type="radio" name="gecici" value="hayir"> Hayır — sadece yıllık</label>
+    </fieldset>
+    <div class="aksiyon"><button id="olustur" class="btn">Tabloları Oluştur</button></div>
+    <div id="d3" class="durum"></div>
+  </section>
+
+  <section class="kart" id="adim4" hidden>
+    <h2><span class="no">4</span> Sonuçlar</h2>
+    <div class="sekmeler">
+      <button data-s="bil">Bilanço</button><button data-s="gt">Gelir Tablosu</button><button data-s="gtd">GT Detay</button><button data-s="miz">Mizan</button><button data-s="kon">Kontrol</button>
+      <span class="bosluk"></span><button id="excelIndir" class="btn">Tümünü Excel'e aktar</button>
+    </div>
+    <div id="sonuc"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Excel makro sürümü: <a href="excel/Yevmiye_MaliTablo.xlsm" download>Yevmiye_MaliTablo.xlsm</a> · Tüm işlemler tarayıcınızda yapılır, internet bağlantısı gerekmez.</p>
+</footer>
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
