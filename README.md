@@ -12,7 +12,7 @@ Yevmiye defteri dökümünü **VEDAS Excel yevmiye biçimine** dönüştürür v
 - Tüm sonuçlar tek bir Excel dosyası olarak indirilebilir.
 
 ## GitHub'a yükleme ve bilgisayara kurma
-1. GitHub'da yeni bir depo oluşturun (ör. `mali-tablo`) ve bu klasördeki **tüm dosyaları** depoya yükleyin.
+1. GitHub'da yeni bir depo oluşturun (ör. `mali-tablo`) ve **tüm dosyaları** deponun ana dizinine yükleyin. Klasör yoktur, hepsi aynı düzeydedir.
 2. **Settings → Pages** bölümünde *Source: Deploy from a branch*, *Branch: main / (root)* seçeneklerini seçip kaydedin.
 3. Birkaç dakika sonra uygulama `https://KULLANICIADI.github.io/mali-tablo/` adresinde açılır.
 4. Chrome veya Edge'de sağ üstteki **"Bilgisayara yükle"** düğmesine ya da adres çubuğundaki yükleme simgesine tıklayın. Uygulama masaüstünde ayrı bir pencerede, çevrimdışı da çalışır.
@@ -20,7 +20,7 @@ Yevmiye defteri dökümünü **VEDAS Excel yevmiye biçimine** dönüştürür v
 Manifest kimliği (`mali-tablo-yevmiye-bilanco`) ve önbellek adı bu uygulamaya özeldir. Bu nedenle aynı GitHub Pages alanındaki diğer uygulamalarla (OCRİK, Kitaptan Sınav vb.) çakışmaz.
 
 ## Excel makro sürümü
-`excel/Yevmiye_MaliTablo.xlsm` aynı işlemleri Excel içinde yapar. Açılış ekranında dosya seçme düğmeleri vardır. Dosyayı açınca **İçeriği Etkinleştir** deyin. Dosya internetten indirildiyse önce *Özellikler → Engellemeyi kaldır* adımını uygulayın.
+`Yevmiye_MaliTablo.xlsm` aynı işlemleri Excel içinde yapar. Açılış ekranında dosya seçme düğmeleri vardır. Dosyayı açınca **İçeriği Etkinleştir** deyin. Dosya internetten indirildiyse önce *Özellikler → Engellemeyi kaldır* adımını uygulayın.
 
 ## Hesaplama kuralları
 - Kapanış kayıtları hiçbir tabloya alınmaz.
